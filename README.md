@@ -1,9 +1,22 @@
 # Finding the temperature of the CMB with data from the FIRAS experiment
 
+## Installing requirements
+
+If you are installing directly in your system, you can use:
+```
+pip install -r requirements.txt
+```
+
+If you are using a virtual environment, you can use:
+```
+pip freeze > requirements.txt
+```
+
 ## How to use the script
 
-1. Run `main.py`, ensuring you have all the other script files (`choosing_methods.py`, `using_scipy.py`, `own_algorithm.py`) as code is distributed between each.
-2. You will be prompted about various options to choose what the program will do. Below is a list of each.
+1. Make sure you are in the `src` folder.
+2. Run `main.py`, ensuring you have all the other script files (`choosing_methods.py`, `using_scipy.py`, `own_algorithm.py`) as code is distributed between each.
+3. You will be prompted about various options to choose what the program will do. Below is a list of each.
 
 ## Options
 
