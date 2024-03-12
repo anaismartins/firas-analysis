@@ -40,4 +40,4 @@ The results are given in the form of the fitted value made by the chosen method(
 
 The errors of the data points are the ones given in the data set and are displayed as vertical lines.
 
-The error of the fitted value for my own algorithm is the mean of the residuals, weighted over the errors of the data points. The error of the fitted value for the value given by scipy is a one standard deviation error. These errors are displayed as a shaded area the same color as the prediction lines.
+The error of the fitted value for both algorithms are one standard deviation. These errors are displayed as a shaded area the same color as the prediction lines.
