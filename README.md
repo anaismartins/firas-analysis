@@ -28,11 +28,11 @@ You will first be asked to choose which method you want the program to use for t
 
 ### Sampling method
 If you choose "own" or "both", you will be prompted about the sampling method you want the program to use. The options are the following:
-- "uniform" - sample possible temperature values uniformly from the interval [0, 293.15] K - minimum possible temperature and NTP temperature
-- "normal" (default) - sample possible temperature values in a normal distribution with mean at 3 K, a very rough estimation of the temperature
+- "uniform" - sample possible temperature values uniformly from the interval [0, 293.15] K, the minimum possible and NTP temperatures
+- "normal" (default) - sample possible temperature values in a normal distribution with mean at 3 K, a very rough estimation of the CMB temperature
 
 ### Minimizing method
-Again, if you choose "own" or "both" for the main method, you will be prompted about which error minimizing method you want the program to use. The options are the following:
+Again, if you choose "own" or "both" for the main method, you will be prompted about which error-minimizing method you want the program to use. The options are the following:
 - "rms" (default) - root mean square error
 - "ols" - ordinary least squares
 
