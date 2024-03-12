@@ -18,8 +18,6 @@ warnings.filterwarnings("ignore")
 red = "#B60000"
 blue = "#3E31D6"
 
-np.random.seed(42)
-
 method = choose_main_method()
 if method == "own" or method == "both":
     sampling_method = choose_sampling_method()
