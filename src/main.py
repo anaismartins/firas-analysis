@@ -3,7 +3,11 @@ import warnings
 import matplotlib.pyplot as plt
 import numpy as np
 
-from globals import method, sampling_method, minimizing_method
+from choosing_methods import (
+    choose_main_method,
+    choose_sampling_method,
+    choose_minimizing_method,
+)
 from own_algorithm import fit as own_fit
 from using_scipy import fit as scipy_fit
 
@@ -17,14 +21,20 @@ c = 29979245800  # cm s-1
 h = 6.62607015e-27  # erg Hz-1
 kB = 1.380649e-16  # erg K-1
 
+method = choose_main_method()
+if method == "own" or method == "both":
+    sampling_method = choose_sampling_method()
+    minimizing_method = choose_minimizing_method()
+
 if method == "scipy":
     filename = f"{method}"
 elif method == "own" or method == "both":
     filename = f"{method}_{sampling_method}_{minimizing_method}"
 
-text = "Estimate for temperature of CMB assuming it is a BB\n\n"
+text = "\nEstimate for temperature of CMB assuming it is a BB"
 with open(f"../output/{filename}.txt", "w") as f:
-    f.write(text)
+    f.write(text + "\n\n")
+print(text)
 
 data = []
 
@@ -86,11 +96,11 @@ if method == "own" or method == "both":
         target_error=0.1,
         max_iterations=1000,
     )
-    text = f"Estimate using own algorithm: {own_pred:.5f} +- {own_error:.5f} K\n"
+    text = f"Estimate using own algorithm: {own_pred:.5f} +- {own_error:.5f} K"
 
     print(text)
     with open(f"../output/{filename}.txt", "w") as f:
-        f.write(text)
+        f.write(text + "\n")
 
     # shaded area for the error
     plt.fill_between(
@@ -134,3 +144,4 @@ if method == "own" or method == "both":
 
 plt.legend(loc="best")
 plt.savefig(f"../output/{filename}.png")
+print(f"Plot saved as {filename}.png in output folder")
