@@ -42,4 +42,4 @@ The results are given in the form of the fitted value made by the chosen method(
 
 The errors of the data points are the ones given in the data set and are displayed as vertical lines.
 
-The error of the fitted value for both algorithms are given with 95% confidence level. These errors are displayed as a shaded area the same color as the prediction lines.
+The error of the fitted value for both algorithms are given with 95% confidence level. In the plot, the errors are displayed by a shaded area the same color as the prediction lines that shades between the spectrum values for the highest and lowest fitted values within the error.
