@@ -17,6 +17,15 @@ c = 29979245800  # cm s-1
 h = 6.62607015e-27  # erg Hz-1
 kB = 1.380649e-16  # erg K-1
 
+if method == "scipy":
+    filename = f"{method}"
+elif method == "own" or method == "both":
+    filename = f"{method}_{sampling_method}_{minimizing_method}"
+
+text = "Estimate for temperature of CMB assuming it is a BB\n\n"
+with open(f"../output/{filename}.txt", "w") as f:
+    f.write(text)
+
 data = []
 
 # reading data file and parsing it into a numpy matrix
@@ -77,9 +86,11 @@ if method == "own" or method == "both":
         target_error=0.1,
         max_iterations=1000,
     )
-    print(
-        f"Estimate for temperature of CMB assuming it is a BB\nEstimate using own algorithm: {own_pred:.5f} +- {own_error:.5f} K"
-    )
+    text = f"Estimate using own algorithm: {own_pred:.5f} +- {own_error:.5f} K\n"
+
+    print(text)
+    with open(f"../output/{filename}.txt", "w") as f:
+        f.write(text)
 
     # shaded area for the error
     plt.fill_between(
@@ -92,9 +103,11 @@ if method == "own" or method == "both":
 
 if method == "scipy" or method == "both":
     scipy_pred, scipy_error = scipy_fit(planck, xdata, ydata, yerrordata)
-    print(
-        f"Estimate using scipy built-in function: {scipy_pred:.5f} +- {scipy_error:.5f} K"
-    )
+    text = f"Estimate using scipy built-in function: {scipy_pred:.5f} +- {scipy_error:.5f} K"
+    print(text)
+    with open(f"../output/{filename}.txt", "a") as f:
+        f.write(text)
+
     # shaded area for the error
     plt.fill_between(
         x=xdata,
@@ -120,9 +133,4 @@ if method == "own" or method == "both":
     )
 
 plt.legend(loc="best")
-
-if method == "scipy":
-    filename = f"{method}"
-elif method == "own" or method == "both":
-    filename = f"{method}_{sampling_method}_{minimizing_method}"
 plt.savefig(f"../output/{filename}.png")

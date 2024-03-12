@@ -15,11 +15,11 @@ def fit(
     ydata,
     yerrordata,
     min=0,
-    max=100,
+    max=293.15,
     sampling_method="uniform",
     minimizing_method="rms",
     target_error=1e-5,
-    max_iterations=10000,
+    max_iterations=100000,
 ):
     min_error = np.inf
     best_T = 0
