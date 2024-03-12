@@ -5,9 +5,10 @@ import numpy as np
 
 from choosing_methods import (
     choose_main_method,
-    choose_sampling_method,
     choose_minimizing_method,
+    choose_sampling_method,
 )
+from functions import planck
 from own_algorithm import fit as own_fit
 from using_scipy import fit as scipy_fit
 
@@ -16,10 +17,6 @@ warnings.filterwarnings("ignore")
 
 red = "#B60000"
 blue = "#3E31D6"
-
-c = 29979245800  # cm s-1
-h = 6.62607015e-27  # erg Hz-1
-kB = 1.380649e-16  # erg K-1
 
 np.random.seed(42)
 
@@ -33,7 +30,7 @@ if method == "scipy":
 elif method == "own" or method == "both":
     filename = f"{method}_{sampling_method}_{minimizing_method}"
 
-text = "\nEstimate for temperature of CMB assuming it is a black body given by Planck's law with corresponding error with 95\% condifence level\n\n"
+text = "\nEstimate for temperature of CMB assuming it is a black body given by Planck's law with corresponding error with 95% condifence level\n\n"
 with open(f"../output/{filename}.txt", "w") as f:
     f.write(text + "\n\n")
 print(text)
@@ -72,17 +69,6 @@ plt.errorbar(
 )
 plt.xlabel("Frequency (cm-1)")
 plt.ylabel("FIRAS Molopole Spectrum (kJy/sr)")
-
-
-def planck(nu, T):  # use miu and y parameters too?
-    equation = (
-        2 * h * c**2 * nu**3 / (np.exp(h * c * nu / (kB * T)) - 1) / c
-    )  # unit: erg s−1 sr−1 cm−2 Hz−1
-
-    in_Jy = 1e23 * equation  # unit: Jy
-    in_MJy = in_Jy * 1e-6  # unit: MJy
-
-    return in_MJy
 
 
 if method == "own" or method == "both":
