@@ -19,10 +19,10 @@ def choose_main_method():
 
 
 def choose_sampling_method():
-    possibilities = ["uniform"]
+    possibilities = ["uniform", "normal"]
 
     sampling_method = input(
-        "\nEnter the corresponding number of the sampling method you want to choose:\n1: uniform\n"
+        "\nEnter the corresponding number of the sampling method you want to choose:\n1: uniform\n2: normal\n"
     )
     if sampling_method == "":
         print("No method chosen, defaulting to uniform")

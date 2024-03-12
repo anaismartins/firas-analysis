@@ -15,11 +15,13 @@ from using_scipy import fit as scipy_fit
 warnings.filterwarnings("ignore")
 
 red = "#B60000"
-grey = "#B2B3B7"
+blue = "#3E31D6"
 
 c = 29979245800  # cm s-1
 h = 6.62607015e-27  # erg Hz-1
 kB = 1.380649e-16  # erg K-1
+
+np.random.seed(42)
 
 method = choose_main_method()
 if method == "own" or method == "both":
@@ -108,7 +110,7 @@ if method == "own" or method == "both":
         y1=planck(xdata, own_pred - own_error),
         y2=planck(xdata, own_pred + own_error),
         alpha=0.5,
-        color=grey,
+        color=blue,
     )
 
 if method == "scipy" or method == "both":
@@ -139,7 +141,7 @@ if method == "own" or method == "both":
         xdata,
         planck(xdata, own_pred),
         label=f"own fit: T = {own_pred:.5f} +- {own_error:.5f} K",
-        color=grey,
+        color=blue,
     )
 
 plt.legend(loc="best")

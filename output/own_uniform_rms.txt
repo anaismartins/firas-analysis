@@ -1,1 +1,1 @@
-Estimate using own algorithm: 2.75314 +- 0.42532 K
+Estimate using own algorithm: 2.70960 +- 0.22814 K

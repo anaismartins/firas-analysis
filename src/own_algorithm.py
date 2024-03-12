@@ -19,7 +19,7 @@ def fit(
     sampling_method="uniform",
     minimizing_method="rms",
     target_error=1e-5,
-    max_iterations=100000,
+    max_iterations=100000000,
 ):
     min_error = np.inf
     best_T = 0
@@ -29,6 +29,10 @@ def fit(
         # sampling for T
         if sampling_method == "uniform":
             T = np.random.uniform(min, max)
+        elif sampling_method == "normal":
+            T = np.random.normal(2.7)
+            if T < min or T > max:
+                continue
 
         # calculating the prediction for the spectrum
         try:
