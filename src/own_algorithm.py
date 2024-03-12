@@ -54,6 +54,7 @@ def fit(
             break
 
     residuals = np.abs(ydata - func(xdata, best_T)) / yerrordata
-    error = np.std(residuals)
+    stdev_error = np.std(residuals)
+    ci_error = 1.96 * stdev_error / np.sqrt(len(xdata))
 
-    return best_T, error
+    return best_T, ci_error

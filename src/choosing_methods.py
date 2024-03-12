@@ -25,8 +25,8 @@ def choose_sampling_method():
         "\nEnter the corresponding number of the sampling method you want to choose:\n1: uniform\n2: normal\n"
     )
     if sampling_method == "":
-        print("No method chosen, defaulting to uniform")
-        sampling_method = "uniform"
+        print("No method chosen, defaulting to normal")
+        sampling_method = "normal"
 
     while sampling_method not in possibilities:
         try:

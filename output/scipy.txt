@@ -1,4 +1,0 @@
-
-Estimate for temperature of CMB assuming it is a BB
-
-Estimate using scipy built-in function: 2.72502 +- 0.00758 K
