@@ -39,10 +39,10 @@ def choose_sampling_method():
 
 
 def choose_minimizing_method():
-    possibilities = ["rms"]
+    possibilities = ["rms", "ols"]
 
     minimizing_method = input(
-        "\nEnter the corresponding number of the minimizing method you want to choose:\n1: rms\n"
+        "\nEnter the corresponding number of the minimizing method you want to choose:\n1: rms\n2: ols\n"
     )
     if minimizing_method == "":
         print("\nNo method chosen, defaulting to rms")

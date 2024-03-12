@@ -30,7 +30,7 @@ def fit(
         if sampling_method == "uniform":
             T = np.random.uniform(min, max)
         elif sampling_method == "normal":
-            T = np.random.normal(2.7)
+            T = np.random.normal(3)
             if T < min or T > max:
                 continue
 
@@ -43,6 +43,8 @@ def fit(
         # calculating the error
         if minimizing_method == "rms":
             error = rms(len(xdata), ydata, prediction)
+        elif minimizing_method == "ols":
+            error = np.sum((ydata - prediction) ** 2)
 
         if error < min_error:
             min_error = error
@@ -52,6 +54,6 @@ def fit(
             break
 
     residuals = np.abs(ydata - func(xdata, best_T)) / yerrordata
-    error = np.mean(residuals)
+    error = np.std(residuals)
 
     return best_T, error

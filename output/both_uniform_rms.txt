@@ -1,2 +1,2 @@
-Estimate using own algorithm: 2.70960 +- 0.22814 K
+Estimate using own algorithm: 2.70960 +- 0.20714 K
 Estimate using scipy built-in function: 2.72502 +- 0.00758 K

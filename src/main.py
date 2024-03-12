@@ -33,7 +33,7 @@ if method == "scipy":
 elif method == "own" or method == "both":
     filename = f"{method}_{sampling_method}_{minimizing_method}"
 
-text = "\nEstimate for temperature of CMB assuming it is a BB"
+text = "\nEstimate for temperature of CMB assuming it is a black body given by Planck's law with corresponding error of 1 standard deviation"
 with open(f"../output/{filename}.txt", "w") as f:
     f.write(text + "\n\n")
 print(text)
