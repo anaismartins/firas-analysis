@@ -19,7 +19,7 @@ def fit(
     sampling_method="uniform",
     minimizing_method="rms",
     target_error=1e-5,
-    max_iterations=100000000,
+    max_iterations=1e10,
 ):
     min_error = np.inf
     best_T = 0

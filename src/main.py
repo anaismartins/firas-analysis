@@ -131,3 +131,4 @@ if method == "own" or method == "both":
 plt.legend(loc="best")
 plt.savefig(f"../output/{filename}.png")
 print(f"Plot saved as {filename}.png in output folder")
+plt.show()
